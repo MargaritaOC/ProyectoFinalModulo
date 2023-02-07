@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondodepantalla2"
+    tools:context=".AnadirMascota">
+
+
+    <EditText
+        android:id="@+id/sexoM"
+        android:layout_width="166dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:hint="sexo"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/nombreM"
+        app:layout_constraintTop_toBottomOf="@+id/vacunadoM" />
+
+    <EditText
+        android:id="@+id/chipM"
+        android:layout_width="155dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="164dp"
+        android:ems="10"
+        android:hint="chip"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/tipoM"
+        android:layout_width="162dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="36dp"
+        android:ems="10"
+        android:hint="especie"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.974"
+        app:layout_constraintStart_toEndOf="@+id/localidadM"
+        app:layout_constraintTop_toBottomOf="@+id/estadoM" />
+
+    <EditText
+        android:id="@+id/localidadM"
+        android:layout_width="153dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="localidad"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esterilizadoM" />
+
+    <EditText
+        android:id="@+id/razaM"
+        android:layout_width="162dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="36dp"
+        android:ems="10"
+        android:hint="raza"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/edadM"
+        app:layout_constraintTop_toBottomOf="@+id/sexoM" />
+
+    <EditText
+        android:id="@+id/vacunadoM"
+        android:layout_width="167dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="164dp"
+        android:ems="10"
+        android:hint="vacunado"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/chipM"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edadM"
+        android:layout_width="155dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="edad"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreM" />
+
+    <EditText
+        android:id="@+id/nombreM"
+        android:layout_width="155dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chipM" />
+
+    <EditText
+        android:id="@+id/estadoM"
+        android:layout_width="162dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="36dp"
+        android:ems="10"
+        android:hint="Estado"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/esterilizadoM"
+        app:layout_constraintTop_toBottomOf="@+id/razaM" />
+
+    <EditText
+        android:id="@+id/esterilizadoM"
+        android:layout_width="153dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="esterilizado"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edadM" />
+
+    <Button
+        android:id="@+id/BregistrarM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:layout_marginBottom="40dp"
+        android:background="@color/transparente"
+        android:text="Registrar Mascota"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descripcionM"
+        app:layout_constraintVertical_bias="0.075" />
+
+    <EditText
+        android:id="@+id/descripcionM"
+        android:layout_width="356dp"
+        android:layout_height="148dp"
+        android:layout_marginTop="424dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="descripcion de la mascota"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.327"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/subirImagen"
+        android:layout_width="352dp"
+        android:layout_height="102dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.382"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.087"
+        app:srcCompat="@android:drawable/stat_sys_upload" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

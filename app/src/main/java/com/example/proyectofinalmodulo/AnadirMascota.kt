@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
@@ -46,12 +47,15 @@ class AnadirMascota : MenuActivity() {
     lateinit var storageUrl: FirebaseStorage
     lateinit var storageRefe: StorageReference
     lateinit var IMGref : StorageReference
+    lateinit var boton : Button
     val db = FirebaseFirestore.getInstance()
 
     val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()){
             uri ->
         if(uri!=null){
             imagenes.setImageURI(uri)
+            subirIMG()
+            conseguirUrl()
 
         }else{
             Toast.makeText(this, "Error la imagen no existe", Toast.LENGTH_SHORT).show()
@@ -67,13 +71,8 @@ class AnadirMascota : MenuActivity() {
         imagenes = binding.subirImagen
 
         binding.subirImagen.setOnClickListener{
-            if (binding.subirImagen == null){
                 pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
 
-            }else{
-                subirIMG()
-                conseguirUrl()
-            }
 
         }
 
@@ -123,6 +122,7 @@ class AnadirMascota : MenuActivity() {
     private fun subirIMG(){
         storage = FirebaseStorage.getInstance()
         val storageRef = storage.reference
+        boton = FirebaseDatabase.getInstance()
 
         val ruta = storageRef.child("IMGmascotas/" + binding.subirImagen.toString() + ".jpeg")
 

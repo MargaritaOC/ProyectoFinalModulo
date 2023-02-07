@@ -32,7 +32,7 @@ open class MenuSalidaActivity : AppCompatActivity() {
             R.id.salir -> {
 
                 val intent = Intent(this, Phone::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                actividadActual = 1
                 startActivity(intent)
                 true
 

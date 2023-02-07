@@ -8,9 +8,10 @@ import android.provider.MediaStore
 import android.widget.ImageButton
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import com.example.proyectofinalmodulo.Menu.MenuActivity
 import com.example.proyectofinalmodulo.databinding.ActivityCamaraBinding
 
-class CamaraActivity : AppCompatActivity() {
+class CamaraActivity : MenuActivity() {
     lateinit var imagenes: ImageButton
     lateinit var binding: ActivityCamaraBinding
 

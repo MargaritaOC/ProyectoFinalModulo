@@ -4,6 +4,7 @@ import com.google.firebase.storage.FirebaseStorage
 
 
 data class MascotasData(
+    var chip: String ="",
     var nombre: String ="",
     var edad: String ="",
     var descripcion: String ="",

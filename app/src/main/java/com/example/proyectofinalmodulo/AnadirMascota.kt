@@ -4,6 +4,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
+import android.media.Image
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -97,7 +98,6 @@ class AnadirMascota : MenuActivity() {
                                 "especie" to binding.tipoM.text.toString(),
                                 "vacunado" to binding.vacunadoM.text.toString(),
                                 "esterilizado" to binding.esterilizadoM.text.toString(),
-                                "imagen" to binding.subirImagen.toString(),
 
                                 ))
                 Toast.makeText(this, "El registro de la nueva mascota se realizo correctamente", Toast.LENGTH_SHORT).show()
@@ -112,43 +112,43 @@ class AnadirMascota : MenuActivity() {
                     }
 
 
-            //actualizarDatos()
         }
 
 
         binding.BeliminarM.setOnClickListener {
             db.collection("Mascotas")
                 .document(binding.chipM.text.toString())
-                .delete()
+                .delete().addOnSuccessListener {
+                    Toast.makeText(this, "la mascota se elimino correctamente", Toast.LENGTH_SHORT).show()
 
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Error al eliminar la mascota", Toast.LENGTH_SHORT).show()
+                }
+
+
+            actualizarDatos()
         }
 
         binding.BactualizarM.setOnClickListener {
-            if (binding.chipM.text.isNotEmpty() && binding.edadM.text.isNotEmpty()
-                && binding.nombreM.text.isNotEmpty() && binding.estadoM.text.isNotEmpty()
-                &&binding.descripcionM.text.isNotEmpty() && binding.esterilizadoM.text.isNotEmpty()
-                && binding.localidadM.text.isNotEmpty() && binding.razaM.text.isNotEmpty()
-                &&binding.sexoM.text.isNotEmpty() && binding.tipoM.text.isNotEmpty()
-                && binding.vacunadoM.text.isNotEmpty()) {
+            db.collection("Mascotas")
+                .whereEqualTo("chip", binding.chipM.text.toString())
+                .get().addOnSuccessListener{
+
+                it.forEach {
+                    binding.nombreM.setText(it.get("nombre") as String?)
+                    binding.estadoM.setText(it.get("Estado") as String?)
+                    binding.descripcionM.setText(it.get("descripcion") as String?)
+                    binding.edadM.setText(it.get("edad") as String?)
+                    binding.localidadM.setText(it.get("localidad") as String?)
+                    binding.razaM.setText(it.get("raza") as String?)
+                    binding.sexoM.setText(it.get("sexo") as String?)
+                    binding.tipoM.setText(it.get("especie") as String?)
+                    binding.vacunadoM.setText(it.get("vacunado") as String?)
+                    binding.esterilizadoM.setText(it.get("esterilizado") as String?)
+
+                }
 
 
-                db.collection("Mascotas").document(binding.chipM.text.toString())
-                    .set(
-                        mapOf(
-                            "nombre" to binding.nombreM.text.toString(),
-                            "Estado" to binding.estadoM.text.toString(),
-                            "descripcion" to binding.descripcionM.text.toString(),
-                            "edad" to binding.edadM.text.toString(),
-                            "localidad" to binding.localidadM.text.toString(),
-                            "raza" to binding.razaM.text.toString(),
-                            "sexo" to binding.sexoM.text.toString(),
-                            "especie" to binding.tipoM.text.toString(),
-                            "vacunado" to binding.vacunadoM.text.toString(),
-                            "esterilizado" to binding.esterilizadoM.text.toString(),
-                            "imagen" to binding.subirImagen.toString(),
-
-                            )
-                    )
             }
         }
 
@@ -197,16 +197,16 @@ class AnadirMascota : MenuActivity() {
     }
 
 
-   /* fun actualizarDatos() {
+   fun actualizarDatos() {
         val recyclerView = findViewById<RecyclerView>(R.id.mascotasLista)
         val firestore = FirebaseFirestore.getInstance()
 
         firestore.collection("Mascotas").get()
             .addOnSuccessListener { result ->
-                val datos = result.toObjects(MascotasData::class.java)
+                val datos = result.toObjects(InicioActivity::class.java)
                 recyclerView.adapter = MascotaAdapter(datos as ArrayList<MascotasData>)
             }
     }
-    */
+
 
 }

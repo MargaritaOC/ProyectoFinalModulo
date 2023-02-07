@@ -116,17 +116,51 @@ class AnadirMascota : MenuActivity() {
         }
 
 
+        binding.BeliminarM.setOnClickListener {
+            db.collection("Mascotas")
+                .document(binding.chipM.text.toString())
+                .delete()
+
+        }
+
+        binding.BactualizarM.setOnClickListener {
+            if (binding.chipM.text.isNotEmpty() && binding.edadM.text.isNotEmpty()
+                && binding.nombreM.text.isNotEmpty() && binding.estadoM.text.isNotEmpty()
+                &&binding.descripcionM.text.isNotEmpty() && binding.esterilizadoM.text.isNotEmpty()
+                && binding.localidadM.text.isNotEmpty() && binding.razaM.text.isNotEmpty()
+                &&binding.sexoM.text.isNotEmpty() && binding.tipoM.text.isNotEmpty()
+                && binding.vacunadoM.text.isNotEmpty()) {
+
+
+                db.collection("Mascotas").document(binding.chipM.text.toString())
+                    .set(
+                        mapOf(
+                            "nombre" to binding.nombreM.text.toString(),
+                            "Estado" to binding.estadoM.text.toString(),
+                            "descripcion" to binding.descripcionM.text.toString(),
+                            "edad" to binding.edadM.text.toString(),
+                            "localidad" to binding.localidadM.text.toString(),
+                            "raza" to binding.razaM.text.toString(),
+                            "sexo" to binding.sexoM.text.toString(),
+                            "especie" to binding.tipoM.text.toString(),
+                            "vacunado" to binding.vacunadoM.text.toString(),
+                            "esterilizado" to binding.esterilizadoM.text.toString(),
+                            "imagen" to binding.subirImagen.toString(),
+
+                            )
+                    )
+            }
+        }
 
     }
 
     private fun subirIMG(){
         storage = FirebaseStorage.getInstance()
         val storageRef = storage.reference
-        boton = FirebaseDatabase.getInstance()
 
         val ruta = storageRef.child("IMGmascotas/" + binding.subirImagen.toString() + ".jpeg")
 
-        val bitmap = (binding.subirImagen as BitmapDrawable).bitmap
+        val bitmap = (boton.drawableState as BitmapDrawable).bitmap
         val baos = ByteArrayOutputStream()
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val data = baos.toByteArray()
@@ -161,6 +195,7 @@ class AnadirMascota : MenuActivity() {
         }
 
     }
+
 
    /* fun actualizarDatos() {
         val recyclerView = findViewById<RecyclerView>(R.id.mascotasLista)

@@ -129,6 +129,11 @@ class AnadirMascota : MenuActivity() {
                     Toast.makeText(this, "Error al eliminar la mascota", Toast.LENGTH_SHORT).show()
                 }
 
+            val intent = Intent(this, InicioActivity::class.java).apply {
+                putExtra("nombremascota", binding.nombreM.text.toString())
+            }
+            startActivity(intent)
+
            // actualizarDatos()
         }
 

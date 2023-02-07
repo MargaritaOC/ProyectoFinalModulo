@@ -16,6 +16,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Recycler
@@ -42,11 +43,13 @@ import java.io.ByteArrayOutputStream
 class AnadirMascota : MenuActivity() {
     lateinit var binding: ActivityAnadirMascotaBinding
     lateinit var binding2:ListadoBinding
+    lateinit var mascotasList: ArrayList<MascotasData>
     lateinit var binding3: ActivityInicioBinding
     lateinit var imagenes: ImageButton
     lateinit var storage : FirebaseStorage
     lateinit var storageUrl: FirebaseStorage
     lateinit var storageRefe: StorageReference
+    lateinit var recycler : RecyclerView
     lateinit var IMGref : StorageReference
     lateinit var boton : Button
     val db = FirebaseFirestore.getInstance()
@@ -70,6 +73,7 @@ class AnadirMascota : MenuActivity() {
         binding3 = ActivityInicioBinding.inflate(layoutInflater)
         setContentView(binding.root)
         imagenes = binding.subirImagen
+
 
         binding.subirImagen.setOnClickListener{
                 pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
@@ -125,8 +129,7 @@ class AnadirMascota : MenuActivity() {
                     Toast.makeText(this, "Error al eliminar la mascota", Toast.LENGTH_SHORT).show()
                 }
 
-
-            actualizarDatos()
+           // actualizarDatos()
         }
 
         binding.BactualizarM.setOnClickListener {
@@ -203,7 +206,7 @@ class AnadirMascota : MenuActivity() {
 
         firestore.collection("Mascotas").get()
             .addOnSuccessListener { result ->
-                val datos = result.toObjects(InicioActivity::class.java)
+                val datos = result.toObjects(ListadoBinding::class.java)
                 recyclerView.adapter = MascotaAdapter(datos as ArrayList<MascotasData>)
             }
     }

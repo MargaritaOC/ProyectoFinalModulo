@@ -4,11 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.example.proyectofinalmodulo.Menu.MenuSalidaActivity
 import com.example.proyectofinalmodulo.databinding.ActivityRegistroBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class RegistroActivity : AppCompatActivity() {
+class RegistroActivity : MenuSalidaActivity() {
     lateinit var binding: ActivityRegistroBinding
     val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {

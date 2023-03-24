@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import com.example.proyectofinalmodulo.InicioActivity
+import com.example.proyectofinalmodulo.MainActivity
 import com.example.proyectofinalmodulo.R
 
 open class MenuSalidaActivity : AppCompatActivity() {
@@ -31,7 +32,7 @@ open class MenuSalidaActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.salir -> {
 
-                val intent = Intent(this, Phone::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 actividadActual = 1
                 startActivity(intent)
                 true

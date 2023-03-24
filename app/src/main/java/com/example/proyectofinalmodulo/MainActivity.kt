@@ -52,5 +52,6 @@ class MainActivity : MenuSalidaActivity() {
         }else{
             Toast.makeText(this, "Algun campo está vacío", Toast.LENGTH_SHORT).show()
         }
+
     }
 }

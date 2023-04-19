@@ -21,6 +21,9 @@
         android:theme="@style/Theme.ProyectoFinalModulo"
         tools:targetApi="31">
         <activity
+            android:name=".PerfilMascota"
+            android:exported="false" />
+        <activity
             android:name=".Menu.MenuSalidaActivity"
             android:exported="true" />
         <activity

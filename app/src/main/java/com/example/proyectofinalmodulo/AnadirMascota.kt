@@ -36,9 +36,13 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import io.grpc.Compressor
 import io.grpc.Context.Storage
+import kotlinx.coroutines.flow.internal.NoOpContinuation.context
 import retrofit2.http.Url
 import java.io.ByteArrayOutputStream
+import java.io.File
+import kotlin.coroutines.jvm.internal.CompletedContinuation.context
 
 class AnadirMascota : MenuActivity() {
     lateinit var binding: ActivityAnadirMascotaBinding
@@ -157,6 +161,35 @@ class AnadirMascota : MenuActivity() {
                 }
 
 
+            }
+        }
+        binding.subirImagen.setOnClickListener {
+            // Crear una instancia de FirebaseStorage
+            val storage = FirebaseStorage.getInstance()
+
+            // Crear una referencia a la carpeta de almacenamiento en Firebase
+            val storageRef = storage.reference.child("imagenes")
+            val filePath = RealPathUtil.getRealPath(this, uri)
+            // Crear un archivo File y Uri para la imagen
+            val file = File(filePath)
+            val uri = Uri.fromFile(file)
+
+            // Comprimir la imagen
+            val compressedImageFile = Compressor.compress(context, file)
+
+            // Crear una referencia para la imagen en Firebase
+            val imageRef = storageRef.child(file.name)
+
+            // Subir la imagen a Firebase
+            val uploadTask = imageRef.putFile(Uri.fromFile(compressedImageFile))
+            uploadTask.addOnSuccessListener {
+                // Obtener la URL de descarga de la imagen
+                imageRef.downloadUrl.addOnSuccessListener { uri ->
+                    // Cargar la imagen en un ImageView utilizando Glide
+                    Glide.with(this).load(uri.toString()).into(binding2.fotoMascota)
+                }
+            }.addOnFailureListener {
+                // Manejar el error
             }
         }
 

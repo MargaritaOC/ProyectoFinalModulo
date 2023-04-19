@@ -25,7 +25,7 @@ class RegistroActivity : MenuSalidaActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(
                     binding.emailP.text.toString(), binding.passwordPRegistro.text.toString()
                 ).addOnCompleteListener {
-                    if (it.isSuccessful){ //si se han registrado los datos satisfactoriamente
+                    if (it.isSuccessful){ //si se han registrado los datos satisfactoriamente<
 
 
                         db.collection("Usuarios").document(binding.emailP.text.toString())

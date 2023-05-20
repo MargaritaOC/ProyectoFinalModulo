@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
 
     <item android:title="Listado Mascotas"
-        android:id="@+id/mascotas"/>
-    <item android:title="Añadir Mascotas"
-        android:id="@+id/Añadir_mascota"/>
-    <item android:title="camara"
-        android:id="@+id/accesoCamara"/>
-    <item android:title="Salir"
-        android:id="@+id/salirApli"/>
+        android:id="@+id/mascotas" />
+    <item android:title="Modificar Mascotas"
+        android:id="@+id/Añadir_mascota" />
+    <item android:title="Informacion Mascotas"
+        android:id="@+id/info" />
+    <item android:title="Cerrar Sesión"
+        android:id="@+id/salirApli" />
+
+
+
+
 </menu>

@@ -5,11 +5,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.example.proyectofinalmodulo.AnadirMascota
-import com.example.proyectofinalmodulo.InicioActivity
-import com.example.proyectofinalmodulo.MainActivity
-import com.example.proyectofinalmodulo.R
-import com.example.proyectofinalmodulo.camara.CamaraActivity
+import com.example.proyectofinalmodulo.*
 
 open class MenuActivity : AppCompatActivity() {
     companion object{
@@ -37,8 +33,6 @@ open class MenuActivity : AppCompatActivity() {
                 actividadActual = 0
                 startActivity(intent)
                 true
-
-
             }
 
             R.id.Añadir_mascota ->{
@@ -51,24 +45,27 @@ open class MenuActivity : AppCompatActivity() {
 
             }
 
-            R.id.salirApli ->{
-
-                val intent = Intent(this, MainActivity::class.java)
+            R.id.info ->{
+                val intent = Intent(this, BuscarMascotaActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
                 actividadActual = 2
                 startActivity(intent)
                 true
 
             }
 
-            R.id.accesoCamara ->{
+            R.id.salirApli ->{
 
-                val intent = Intent(this, CamaraActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT)
+                val intent = Intent(this, MainActivity::class.java)
                 actividadActual = 3
+                finishAffinity()
                 startActivity(intent)
                 true
 
             }
+
+
+
 
             else -> super.onOptionsItemSelected(item)
         }

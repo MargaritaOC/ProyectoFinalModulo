@@ -21,13 +21,15 @@
         android:theme="@style/Theme.ProyectoFinalModulo"
         tools:targetApi="31">
         <activity
-            android:name=".PerfilMascota"
-            android:exported="false" />
+            android:name=".CambiarContraseniaActivity"
+            android:exported="true"
+            android:label="@string/title_activity_cambiar_contrasenia"
+            android:theme="@style/Theme.ProyectoFinalModulo.NoActionBar" />
         <activity
-            android:name=".Menu.MenuSalidaActivity"
+            android:name=".InfoMascotaActivity"
             android:exported="true" />
         <activity
-            android:name=".camara.CamaraActivity"
+            android:name=".BuscarMascotaActivity"
             android:exported="true" />
         <activity
             android:name=".AnadirMascota"

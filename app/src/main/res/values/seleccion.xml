@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="opciones_array">
+        <item>Sí</item>
+        <item>No</item>
+    </string-array>
+    <string-array name="especies_mascotas">
+        <item>Perro</item>
+        <item>Gato</item>
+        <item>Huron</item>
+        <item>Caballo</item>
+        <item>Pajaro</item>
+        <item>Hamster</item>
+    </string-array>
+    <string-array name="sexo_mascotas">
+        <item>Hembra</item>
+        <item>Macho</item>
+    </string-array>
+    <string-array name="adopciones_mascotas">
+        <item>En Adopcion</item>
+        <item>De Acogida</item>
+        <item>Reservado</item>
+        <item>Adoptado</item>
+    </string-array>
+</resources>

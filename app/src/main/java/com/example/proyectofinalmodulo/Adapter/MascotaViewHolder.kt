@@ -1,47 +1,55 @@
 package com.example.proyectofinalmodulo.Adapter
 
-import android.content.ClipData
+import android.util.Log
 import android.view.View
-import android.widget.ImageView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.proyectofinalmodulo.Models.MascotasData
-import com.example.proyectofinalmodulo.R
-import com.example.proyectofinalmodulo.databinding.ActivityAnadirMascotaBinding
 import com.example.proyectofinalmodulo.databinding.ListadoBinding
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.storage.FirebaseStorage
-import io.grpc.Context.Storage
 
 
 
 class MascotaViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val binding = ListadoBinding.bind(view)
-
-
     fun render(mascotaModel: MascotasData) {
-        binding.nombreMascota.text = mascotaModel.nombre
-        binding.anioMascota.text = mascotaModel.edad
+
+        binding.nombreMascota.text = "Nombre: ${mascotaModel.nombre}"
+        binding.anioMascota.text = "Edad: ${mascotaModel.edad}"
         binding.estadoMascota.text = mascotaModel.Estado
-        binding.especieMascota.text = mascotaModel.especie
+        binding.especieMascota.text = "Especie: ${mascotaModel.especie}"
+        Log.d("MascotaAdapter", "idM: ${mascotaModel.idM}")
+        binding.idMascota.text = "Id: " + mascotaModel.idM
+
+
+
         Glide.with(binding.fotoMascota.context).load(mascotaModel.imagen).into(binding.fotoMascota)
 
-       binding.fotoMascota.setOnClickListener {
-            Toast.makeText(
-                binding.fotoMascota.context,
-                mascotaModel.nombre,
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-        itemView.setOnClickListener {
-            Toast.makeText(
-                binding.fotoMascota.context,
-                mascotaModel.nombre,
-                Toast.LENGTH_SHORT
-            ).show()
+        var isImageEnlarged = false
+        val originalWidth = 450
+        val originalHeight = 400
+        val enlargedWidth = 1000
+        val enlargedHeight = 1000
+
+        binding.fotoMascota.setOnClickListener {
+            val layoutParams = binding.fotoMascota.layoutParams
+            if (!isImageEnlarged) {
+                // Si la imagen no está agrandada, cambiar al tamaño más grande
+                layoutParams.width = enlargedWidth
+                layoutParams.height = enlargedHeight
+                isImageEnlarged = true
+            } else {
+                // Si la imagen está agrandada, restaurar el tamaño original
+                layoutParams.width = originalWidth
+                layoutParams.height = originalHeight
+                isImageEnlarged = false
+            }
+            binding.fotoMascota.requestLayout()
         }
 
     }
+
 }
+
+
+
+

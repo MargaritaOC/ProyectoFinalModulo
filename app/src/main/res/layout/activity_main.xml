@@ -16,8 +16,9 @@
         android:text="Iniciar sesion"
 
         android:textColor="@color/teal_200"
-        app:layout_constraintBottom_toTopOf="@+id/TrecordarPassword"
+        app:layout_constraintBottom_toTopOf="@+id/TcambiarPassword"
         app:layout_constraintEnd_toStartOf="@+id/BRegistrarse"
+        app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -25,14 +26,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="64dp"
         android:background="@color/transparente"
         android:text="Registrarse"
         android:textColor="@color/teal_200"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/TcambiarPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordPMain"
-        app:layout_constraintVertical_bias="0.066" />
+        app:layout_constraintVertical_bias="0.256" />
 
     <EditText
         android:id="@+id/passwordPMain"
@@ -40,42 +41,45 @@
         android:layout_height="47dp"
         android:layout_marginBottom="56dp"
         android:ems="10"
+        android:backgroundTint="@color/teal_200"
         android:hint="Escribe una contraseña"
         android:inputType="textPassword"
         android:textColor="@color/black"
         android:textColorHint="@color/gris"
         app:layout_constraintBottom_toTopOf="@+id/BinicioSesion"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailPMain"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.477" />
 
     <EditText
         android:id="@+id/emailPMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
+        android:backgroundTint="@color/teal_200"
         android:hint="Escribe  un correo electronico"
-        android:inputType="textEmailAddress"
+        android:inputType="textEmailAddress|textNoSuggestions"
         android:textColor="@color/black"
         android:textColorHint="@color/gris"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <TextView
-        android:id="@+id/TrecordarPassword"
+    <Button
+        android:id="@+id/TcambiarPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
-        android:text="Recordar password"
+        android:layout_marginBottom="68dp"
+        android:background="@color/transparente"
+        android:text="Restablecer password"
         android:textColor="@color/purple_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.207"
+        app:layout_constraintHorizontal_bias="0.218"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView

@@ -5,23 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondodepantalla2"
-    tools:context=".RegistroActivity">
+    tools:context=".ModificarUsuario">
 
     <EditText
         android:id="@+id/nombreP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="288dp"
-        android:ems="10"
+        android:layout_marginTop="52dp"
         android:backgroundTint="@color/teal_200"
-        android:textColorHint="@color/gris"
+        android:ems="10"
         android:hint="Nombre"
         android:inputType="textPersonName"
         android:textColor="@color/black"
+        android:textColorHint="@color/gris"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/BIusuario" />
 
     <EditText
         android:id="@+id/apellidosP"
@@ -39,60 +39,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreP" />
 
-    <EditText
-        android:id="@+id/emailP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:backgroundTint="@color/teal_200"
-        android:textColorHint="@color/gris"
-        android:textColor="@color/black"
-        android:hint="email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/apellidosP" />
-
-    <EditText
-        android:id="@+id/passwordPRegistro"
+    <Button
+        android:id="@+id/BActualizarP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:ems="10"
-        android:hint="contraseña"
-        android:backgroundTint="@color/teal_200"
-        android:textColorHint="@color/gris"
-        android:textColor="@color/black"
-        android:inputType="textPassword"
+        android:background="@color/transparente"
+        android:text="Actualizar"
+        android:textColor="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailP" />
+        app:layout_constraintTop_toBottomOf="@+id/BfotoP" />
 
     <Button
-        android:id="@+id/BregistrarP"
+        android:id="@+id/BfotoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:textColor="@color/teal_200"
+        android:layout_marginTop="36dp"
         android:background="@color/transparente"
-        android:text="Registrarse"
+        android:text="Hacer foto"
+        android:textColor="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordPRegistro" />
+        app:layout_constraintTop_toBottomOf="@+id/apellidosP" />
 
     <ImageButton
-        android:id="@+id/imageView"
-        android:layout_width="185dp"
-        android:layout_height="217dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/BIusuario"
+        android:layout_width="228dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="112dp"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.087"
-        app:srcCompat="@drawable/splashscreenproyecto" />
+        app:srcCompat="@drawable/persona" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

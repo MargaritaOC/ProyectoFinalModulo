@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EliminarCuentaActivity"
+    android:background="@drawable/fondodepantalla">
+
+    <ImageView
+        android:id="@+id/warningEliminar"
+        android:layout_width="294dp"
+        android:layout_height="269dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/informacion"
+        tools:srcCompat="@android:drawable/stat_sys_warning" />
+
+    <Button
+        android:id="@+id/BeliminarP"
+        android:layout_width="233dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="52dp"
+        android:text="Eliminar cuenta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/warningEliminar" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Nos pone muy triste que quiera eliminar la cuenta"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BeliminarP" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="154dp"
+        android:layout_height="126dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/triste" />
+</androidx.constraintlayout.widget.ConstraintLayout>

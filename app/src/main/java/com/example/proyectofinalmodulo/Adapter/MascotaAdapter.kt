@@ -23,6 +23,8 @@ import java.io.ByteArrayOutputStream
 
 
 class MascotaAdapter(private val mascotasList: ArrayList<MascotasData>) : RecyclerView.Adapter<MascotaViewHolder>(){
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MascotaViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.listado, parent, false)
         return MascotaViewHolder(itemView)
@@ -38,8 +40,6 @@ class MascotaAdapter(private val mascotasList: ArrayList<MascotasData>) : Recycl
     override fun getItemCount(): Int {
         return mascotasList.size
     }
-
-
 
 }
 

@@ -38,6 +38,7 @@ class CambiarContraseniaActivity : AppCompatActivity() {
                                     Toast.LENGTH_SHORT
                                 ).show()
                                 val intent = Intent(this, MainActivity::class.java)
+                                finishAffinity()
                                 startActivity(intent)
                             } else {
                                 Toast.makeText(

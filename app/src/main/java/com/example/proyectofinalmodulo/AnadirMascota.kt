@@ -148,8 +148,6 @@ class AnadirMascota : MenuActivity() {
                             // El chip no existe, se puede agregar la mascota
 
 
-
-
                         // Sube la imagen
                         subirIMG().addOnSuccessListener { uri ->
                             val downloadUrl = uri.toString()
@@ -188,6 +186,7 @@ class AnadirMascota : MenuActivity() {
                                     val intent = Intent(this, InicioActivity::class.java).apply {
                                         putExtra("nombremascota", binding.nombreM.text.toString())
                                     }
+                                    finishAffinity()
                                     actividadActual = 0
                                     startActivity(intent)
                                 }
@@ -262,6 +261,7 @@ class AnadirMascota : MenuActivity() {
                                                     binding.nombreM.text.toString()
                                                 )
                                             }
+                                        finishAffinity()
                                         actividadActual = 0
                                         startActivity(intent)
                                     }
@@ -361,6 +361,7 @@ class AnadirMascota : MenuActivity() {
                                                         binding.nombreM.text.toString()
                                                     )
                                                 }
+                                            finishAffinity()
                                             actividadActual = 0
                                             startActivity(intent)
 
@@ -468,7 +469,6 @@ class AnadirMascota : MenuActivity() {
         }
 
         private fun cargarDatos() {
-
 
             val db = FirebaseFirestore.getInstance()
             // Obtengo los datos de la base de datos

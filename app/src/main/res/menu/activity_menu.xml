@@ -10,8 +10,12 @@
         android:id="@+id/Añadir_mascota" />
     <item android:title="Informacion Mascotas"
         android:id="@+id/info" />
+    <item android:title="Modificar Usuario"
+        android:id="@+id/modifi" />
     <item android:title="Cerrar Sesión"
         android:id="@+id/salirApli" />
+    <item android:title="Eliminar Cuenta"
+        android:id="@+id/eliminarCuenta" />
 
 
 

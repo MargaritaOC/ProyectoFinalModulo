@@ -24,53 +24,86 @@
 
 
     <TextView
+        android:id="@+id/PTsexoM"
+        android:layout_width="190dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="272dp"
+        android:text=""
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/PTnombreM"
         android:layout_width="198dp"
         android:layout_height="25dp"
         android:layout_marginTop="200dp"
-        android:layout_marginEnd="196dp"
         android:text=""
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/PTidM"
+        android:id="@+id/PTedadM"
         android:layout_width="198dp"
         android:layout_height="25dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="196dp"
+        android:layout_marginTop="308dp"
         android:text=""
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imagenMascota" />
-
-    <TextView
-        android:id="@+id/PTespecieM"
-        android:layout_width="198dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="444dp"
-        android:layout_marginEnd="196dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/PTesterilizadoM"
+        android:id="@+id/PTtelefonoM"
+        android:layout_width="198dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="508dp"
+        android:text=""
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/PTestadoM"
         android:layout_width="198dp"
         android:layout_height="25dp"
-        android:layout_marginTop="412dp"
-        android:layout_marginEnd="196dp"
+        android:layout_marginTop="476dp"
         android:text=""
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/PTduenoM"
         android:layout_width="201dp"
         android:layout_height="28dp"
-        android:layout_marginTop="540dp"
+        android:layout_marginTop="536dp"
         android:text=""
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/PTrazaM"
+        android:layout_width="198dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="236dp"
+        android:text=""
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,9 +112,35 @@
         android:layout_width="198dp"
         android:layout_height="25dp"
         android:layout_marginTop="380dp"
-        android:layout_marginEnd="196dp"
         android:text=""
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/PTidM"
+        android:layout_width="198dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagenMascota" />
+
+    <TextView
+        android:id="@+id/PTesterilizadoM"
+        android:layout_width="198dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="412dp"
+        android:text=""
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -89,80 +148,47 @@
         android:layout_width="201dp"
         android:layout_height="30dp"
         android:layout_marginTop="340dp"
-        android:layout_marginEnd="192dp"
         android:text=""
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTedadM"
-        android:layout_width="198dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="308dp"
-        android:layout_marginEnd="196dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTestadoM"
-        android:layout_width="198dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="476dp"
-        android:layout_marginEnd="196dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTtelefonoM"
-        android:layout_width="198dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="508dp"
-        android:layout_marginEnd="196dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTsexoM"
-        android:layout_width="190dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="272dp"
-        android:layout_marginEnd="204dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTrazaM"
-        android:layout_width="198dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="236dp"
-        android:layout_marginEnd="196dp"
-        android:text=""
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/PTemailM"
-        android:layout_width="202dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="576dp"
+        android:layout_width="298dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="572dp"
         android:text=""
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/PTespecieM"
+        android:layout_width="198dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="444dp"
+        android:text=""
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/PTdescripcionM"
-        android:layout_width="253dp"
-        android:layout_height="108dp"
+        android:layout_width="257dp"
+        android:layout_height="98dp"
         android:layout_marginTop="616dp"
-        android:layout_marginEnd="140dp"
         android:text=""
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

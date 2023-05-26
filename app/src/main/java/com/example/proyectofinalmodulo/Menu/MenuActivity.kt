@@ -54,18 +54,31 @@ open class MenuActivity : AppCompatActivity() {
 
             }
 
+            R.id.modifi ->{
+
+                val intent = Intent(this, ModificarUsuario::class.java)
+                actividadActual = 3
+                startActivity(intent)
+                true
+
+            }
+
             R.id.salirApli ->{
 
                 val intent = Intent(this, MainActivity::class.java)
-                actividadActual = 3
+                actividadActual = 4
                 finishAffinity()
                 startActivity(intent)
                 true
 
             }
 
-
-
+            R.id.eliminarCuenta ->{
+                val intent = Intent(this, EliminarCuentaActivity::class.java)
+                actividadActual = 5
+                startActivity(intent)
+                true
+            }
 
             else -> super.onOptionsItemSelected(item)
         }

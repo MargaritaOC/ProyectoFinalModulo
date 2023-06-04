@@ -25,8 +25,8 @@ class MascotaViewHolder(view: View): RecyclerView.ViewHolder(view) {
         Glide.with(binding.fotoMascota.context).load(mascotaModel.imagen).into(binding.fotoMascota)
 
         var isImageEnlarged = false
-        val originalWidth = 450
-        val originalHeight = 400
+        val originalWidth = 490
+        val originalHeight = 430
         val enlargedWidth = 1000
         val enlargedHeight = 1000
 

@@ -49,25 +49,41 @@
         android:textColor="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/BfotoP" />
-
-    <Button
-        android:id="@+id/BfotoP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:background="@color/transparente"
-        android:text="Hacer foto"
-        android:textColor="@color/teal_200"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apellidosP" />
 
     <ImageButton
+        android:id="@+id/botonfoto"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:background="@color/transparente"
+        android:src="@drawable/camara"
+        android:text="Hacer foto"
+        android:textColor="@color/teal_200"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BIusuario" />
+
+    <ImageButton
+        android:id="@+id/botongaleria"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:background="@color/transparente"
+        android:src="@drawable/galeria"
+        android:text="Hacer foto"
+        android:textColor="@color/teal_200"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BIusuario" />
+
+    <ImageView
         android:id="@+id/BIusuario"
         android:layout_width="228dp"
         android:layout_height="150dp"
+        android:background="@color/transparente"
         android:layout_marginTop="112dp"
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +91,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/persona" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

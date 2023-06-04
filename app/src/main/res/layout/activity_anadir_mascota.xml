@@ -10,48 +10,216 @@
 
 
     <ImageButton
+        android:id="@+id/botonfoto"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/transparente"
+        android:src="@drawable/anadirphoto"
+        android:text="Hacer foto"
+        android:textColor="@color/teal_200"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.748"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/botongaleria"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/transparente"
+        android:src="@drawable/galeria"
+        android:text="Hacer foto"
+        android:textColor="@color/teal_200"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.871"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/subirImagen"
         android:layout_width="241dp"
         android:layout_height="123dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/subir_imagen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.094"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/imagenpet"
         app:layout_constraintVertical_bias="0.021"
-        app:srcCompat="@android:drawable/stat_sys_upload" />
+         />
 
-    <Button
-        android:id="@+id/BregistrarM"
-        android:layout_width="127dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/transparente"
-        android:text="Registrar Mascota"
-        android:textColor="@color/teal_200"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <EditText
+        android:id="@+id/chipM"
+        android:layout_width="155dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/teal_200"
+        android:ems="10"
+        android:hint="chip"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gris"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.035"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcionM"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintTop_toBottomOf="@+id/subirImagen" />
 
-    <Button
-        android:id="@+id/BeliminarM"
-        android:layout_width="127dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="12dp"
-        android:background="@color/transparente"
-        android:text="Eliminar Mascota"
-        android:textColor="@color/teal_200"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Spinner
+        android:id="@+id/esterilizadoM"
+        android:layout_width="153dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="260dp"
+        android:backgroundTint="@color/teal_200"
+        android:entries="@array/opciones_array"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.964"
+        app:layout_constraintHorizontal_bias="0.738"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descripcionM"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/estadoM"
+        android:layout_width="158dp"
+        android:layout_height="26dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="392dp"
+        android:backgroundTint="@color/teal_200"
+        android:entries="@array/adopciones_mascotas"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.746"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/localidadM"
+        android:layout_width="153dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/teal_200"
+        android:ems="10"
+        android:hint="localidad"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gris"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/razaM" />
+
+    <EditText
+        android:id="@+id/descripcionM"
+        android:layout_width="344dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/teal_200"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="descripcion de la mascota"
+        android:inputType="textMultiLine"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gris"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/telefonoM" />
+
+    <Spinner
+        android:id="@+id/sexoM"
+        android:layout_width="154dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="324dp"
+        android:backgroundTint="@color/teal_200"
+        android:entries="@array/sexo_mascotas"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.742"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Testerilizado"
+        android:layout_width="144dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="232dp"
+        android:text="Esterilizado:"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.749"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Tvacunado"
+        android:layout_width="141dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="164dp"
+        android:text="Vacunado:"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/chipM"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/vacunadoM"
+        android:layout_width="144dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="68dp"
+        android:backgroundTint="@color/teal_200"
+        android:ems="10"
+        android:entries="@array/opciones_array"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/nombreM"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/especieM"
+        android:layout_width="145dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="452dp"
+        android:backgroundTint="@color/teal_200"
+        android:entries="@array/especies_mascotas"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.713"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Tsexo"
+        android:layout_width="157dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="296dp"
+        android:text="Sexo:"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/chipM"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/BactualizarM"
@@ -63,229 +231,46 @@
         android:textColor="@color/teal_200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descripcionM"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.074" />
 
     <Button
-        android:id="@+id/botonfoto"
-        android:layout_width="117dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="80dp"
+        android:id="@+id/BeliminarM"
+        android:layout_width="127dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="12dp"
         android:background="@color/transparente"
-        android:text="Hacer foto"
+        android:text="Eliminar Mascota"
         android:textColor="@color/teal_200"
-        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.908"
+        app:layout_constraintHorizontal_bias="0.971"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/descripcionM"
+        app:layout_constraintVertical_bias="0.074" />
 
     <TextView
         android:id="@+id/TEstado"
         android:layout_width="155dp"
         android:layout_height="27dp"
-        android:layout_marginTop="344dp"
+        android:layout_marginTop="364dp"
         android:text="Estado:"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintHorizontal_bias="0.282"
         app:layout_constraintStart_toEndOf="@+id/localidadM"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/estadoM"
-        android:layout_width="158dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="372dp"
-        android:backgroundTint="@color/teal_200"
-        android:entries="@array/adopciones_mascotas"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.737"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/razaM"
-        android:layout_width="151dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="6dp"
-        android:backgroundTint="@color/teal_200"
-        android:ems="10"
-        android:hint="raza"
-        android:textColor="@color/black"
-        android:inputType="textPersonName"
-        android:textColorHint="@color/gris"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edadM" />
-
-    <TextView
-        android:id="@+id/Testerilizado"
-        android:layout_width="144dp"
-        android:layout_height="29dp"
-        android:layout_marginTop="212dp"
-        android:text="Esterilizado:"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.741"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/nombreM"
-        android:layout_width="155dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="5dp"
-        android:backgroundTint="@color/teal_200"
-        android:ems="10"
-        android:hint="Nombre"
-        android:inputType="textPersonName"
-        android:textColor="@color/black"
-        android:textColorHint="@color/gris"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chipM" />
-
-    <EditText
-        android:id="@+id/duenoM"
-        android:layout_width="148dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="4dp"
-        android:backgroundTint="@color/teal_200"
-        android:ems="10"
-        android:hint="Dueño"
-        android:inputType="textPersonName"
-        android:textColor="@color/black"
-        android:textColorHint="@color/gris"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/localidadM" />
-
-    <EditText
-        android:id="@+id/descripcionM"
-        android:layout_width="342dp"
-        android:layout_height="102dp"
-        android:layout_marginTop="476dp"
-        android:backgroundTint="@color/teal_200"
-        android:ems="10"
-        android:gravity="start|top"
-        android:textColor="@color/black"
-        android:hint="descripcion de la mascota"
-        android:inputType="textMultiLine"
-        android:textColorHint="@color/gris"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.347"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/localidadM"
-        android:layout_width="153dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="4dp"
-        android:backgroundTint="@color/teal_200"
-        android:ems="10"
-        android:hint="localidad"
-        android:inputType="textPersonName"
-        android:textColor="@color/black"
-        android:textColorHint="@color/gris"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/razaM" />
-
-    <Spinner
-        android:id="@+id/vacunadoM"
-        android:layout_width="144dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="68dp"
-        android:backgroundTint="@color/teal_200"
-        android:ems="10"
-        android:entries="@array/opciones_array"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.958"
-        app:layout_constraintStart_toEndOf="@+id/nombreM"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Tespecie"
-        android:layout_width="146dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="404dp"
-        android:text="Especie:"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.743"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/especieM"
-        android:layout_width="145dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="432dp"
-        android:backgroundTint="@color/teal_200"
-        android:entries="@array/especies_mascotas"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.704"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/esterilizadoM"
-        android:layout_width="153dp"
-        android:layout_height="29dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="240dp"
-        android:backgroundTint="@color/teal_200"
-        android:entries="@array/opciones_array"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.729"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Tvacunado"
-        android:layout_width="141dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="23dp"
-        android:layout_marginTop="144dp"
-        android:text="Vacunado:"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/chipM"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/telefonoM"
         android:layout_width="157dp"
         android:layout_height="41dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:backgroundTint="@color/teal_200"
         android:ems="10"
         android:hint="telefono"
@@ -293,25 +278,88 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gris"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/duenoM" />
 
     <EditText
-        android:id="@+id/chipM"
-        android:layout_width="155dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="144dp"
+        android:id="@+id/duenoM"
+        android:layout_width="148dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/teal_200"
         android:ems="10"
-        android:hint="chip"
+        android:hint="Nombre dueño"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textColorHint="@color/gris"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/localidadM" />
+
+    <EditText
+        android:id="@+id/nombreM"
+        android:layout_width="155dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/teal_200"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gris"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chipM" />
+
+    <TextView
+        android:id="@+id/Tespecie"
+        android:layout_width="146dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="424dp"
+        android:text="Especie:"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/razaM"
+        android:layout_width="151dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/teal_200"
+        android:ems="10"
+        android:hint="raza"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gris"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edadM" />
+
+    <Button
+        android:id="@+id/BregistrarM"
+        android:layout_width="127dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="12dp"
+        android:background="@color/transparente"
+        android:text="Registrar Mascota"
+        android:textColor="@color/teal_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descripcionM"
+        app:layout_constraintVertical_bias="0.074" />
+
 
     <EditText
         android:id="@+id/edadM"
@@ -325,47 +373,15 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gris"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.089"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombreM" />
-
-
-
-    <TextView
-        android:id="@+id/Tsexo"
-        android:layout_width="157dp"
-        android:layout_height="27dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="276dp"
-        android:text="Sexo:"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/chipM"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/sexoM"
-        android:layout_width="154dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="304dp"
-        android:backgroundTint="@color/teal_200"
-        android:entries="@array/sexo_mascotas"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.733"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/botonAutoCompletar"
         android:layout_width="128dp"
         android:layout_height="71dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="64dp"
         android:background="@color/transparente"
         android:text="Completar informacion"
         android:textColor="@color/teal_200"

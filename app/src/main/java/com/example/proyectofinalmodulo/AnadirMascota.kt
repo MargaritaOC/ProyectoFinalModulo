@@ -43,7 +43,7 @@ class AnadirMascota : MenuActivity() {
     lateinit var binding: ActivityAnadirMascotaBinding
     lateinit var binding2: ListadoBinding
     lateinit var binding3: ActivityInicioBinding
-    lateinit var imagenes: ImageButton
+    lateinit var imagenes: ImageView
     private lateinit var adapter: MascotaAdapter
     private lateinit var mascotasRecyclerView: RecyclerView
     private lateinit var mascotasArrayList: ArrayList<MascotasData>
@@ -61,17 +61,16 @@ class AnadirMascota : MenuActivity() {
         }
     }
 
-    val pickFoto = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
-            val data: Intent? = result.data
-            val foto: Bitmap? = data?.extras?.get("data") as Bitmap?
-            foto?.let {
-                binding.subirImagen.setImageBitmap(it)
+    val pickFoto =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                val foto: Bitmap? = data?.extras?.get("data") as Bitmap?
+                foto?.let {
+                    binding.subirImagen.setImageBitmap(it)
+                }
             }
-        } else {
-            startActivity(Intent(this, AnadirMascota::class.java))
         }
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,7 +82,7 @@ class AnadirMascota : MenuActivity() {
         binding3 = ActivityInicioBinding.inflate(layoutInflater)
         setContentView(binding.root)
         imagenes = binding.subirImagen
-        binding.subirImagen.setOnClickListener {
+        binding.botongaleria.setOnClickListener {
             pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
 
         }
@@ -133,8 +132,8 @@ class AnadirMascota : MenuActivity() {
                 || binding.descripcionM.text.isNullOrEmpty()
                 || binding.localidadM.text.isNullOrEmpty() || binding.razaM.text.isNullOrEmpty()
                 || binding.duenoM.text.isNullOrEmpty()
-                || binding.telefonoM.text.isNullOrEmpty() )
-             {
+                || binding.telefonoM.text.isNullOrEmpty()
+            ) {
                 Toast.makeText(this, "Tiene que ingresar todos los campos", Toast.LENGTH_SHORT)
                     .show()
             } else {
@@ -147,107 +146,36 @@ class AnadirMascota : MenuActivity() {
                         if (querySnapshot.isEmpty) {
                             // El chip no existe, se puede agregar la mascota
 
+                            // Sube la imagen
+                            subirIMG().addOnSuccessListener { uri ->
+                                val downloadUrl = uri.toString()
+                                val data = mapOf(
+                                    "idM" to idUnica,
+                                    "chip" to binding.chipM.text.toString(),
+                                    "nombre" to binding.nombreM.text.toString(),
+                                    "Estado" to binding.estadoM.selectedItem.toString(),
+                                    "descripcion" to binding.descripcionM.text.toString(),
+                                    "edad" to binding.edadM.text.toString(),
+                                    "localidad" to binding.localidadM.text.toString(),
+                                    "raza" to binding.razaM.text.toString(),
+                                    "sexo" to binding.sexoM.selectedItem.toString(),
+                                    "especie" to binding.especieM.selectedItem.toString(),
+                                    "vacunado" to binding.vacunadoM.selectedItem.toString(),
+                                    "esterilizado" to binding.esterilizadoM.selectedItem.toString(),
+                                    "gmail" to userEmailAddress,
+                                    "dueño" to binding.duenoM.text.toString(),
+                                    "telefono" to binding.telefonoM.text.toString(),
+                                    "imagen" to downloadUrl
+                                )
 
-                        // Sube la imagen
-                        subirIMG().addOnSuccessListener { uri ->
-                            val downloadUrl = uri.toString()
-                            val data = mapOf(
-                                "idM" to idUnica,
-                                "chip" to binding.chipM.text.toString(),
-                                "nombre" to binding.nombreM.text.toString(),
-                                "Estado" to binding.estadoM.selectedItem.toString(),
-                                "descripcion" to binding.descripcionM.text.toString(),
-                                "edad" to binding.edadM.text.toString(),
-                                "localidad" to binding.localidadM.text.toString(),
-                                "raza" to binding.razaM.text.toString(),
-                                "sexo" to binding.sexoM.selectedItem.toString(),
-                                "especie" to binding.especieM.selectedItem.toString(),
-                                "vacunado" to binding.vacunadoM.selectedItem.toString(),
-                                "esterilizado" to binding.esterilizadoM.selectedItem.toString(),
-                                "gmail" to userEmailAddress,
-                                "dueño" to binding.duenoM.text.toString(),
-                                "telefono" to binding.telefonoM.text.toString(),
-                                "imagen" to downloadUrl
-                            )
-
-                            // Inserta la mascota en la base de datos
-                            db.collection("Mascotas").document(binding.chipM.text.toString()).set(data)
-                                .addOnSuccessListener {
-
-                                    Toast.makeText(
-                                        this,
-                                        "El registro de la nueva mascota se realizó correctamente",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-
-                                    limpiarCampos()
-                                    cargarDatos()
-
-                                    val intent = Intent(this, InicioActivity::class.java).apply {
-                                        putExtra("nombremascota", binding.nombreM.text.toString())
-                                    }
-                                    finishAffinity()
-                                    actividadActual = 0
-                                    startActivity(intent)
-                                }
-                                .addOnFailureListener {
-                                    Toast.makeText(
-                                        this,
-                                        "Error en el registro de la nueva mascota",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                }
-                        }.addOnFailureListener { exception ->
-                            Log.e("Imagen", "Error al subir la imagen: $exception")
-                        }
-
-                    } else {
-                    // El chip ya existe en la base de datos
-                    Toast.makeText(this, "El chip ya está en uso", Toast.LENGTH_SHORT).show()
-                }
-            }
-                .addOnFailureListener { exception ->
-                    // Error al realizar la consulta
-                    Toast.makeText(this, "Error al verificar el chip", Toast.LENGTH_SHORT).show()
-                    Log.e("Verificación de chip", exception.toString())
-                }
-        }
-
-
-        }
-            //modificar el boton eliminar cuando sea nulo el chip que salte un error
-
-            binding.BeliminarM.setOnClickListener {
-                if (binding.chipM.text.isNullOrEmpty()) {
-                    Toast.makeText(
-                        this,
-                        "Por favor, ingrese un valor para el campo Chip",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    return@setOnClickListener
-                }
-
-                val builder = AlertDialog.Builder(this)
-                builder.setTitle("Confirmar eliminación")
-                builder.setMessage("¿Estás seguro de que deseas eliminar esta mascota?")
-
-
-                // Verificar si el documento existe antes de eliminarlo
-                db.collection("Mascotas")
-                    .document(binding.chipM.text.toString())
-                    .get()
-                    .addOnSuccessListener { documentSnapshot ->
-                        if (documentSnapshot.exists()) {
-
-                            builder.setPositiveButton("Si") { dialog, which ->
-                                // Acciones a realizar si el usuario confirma la eliminación
-                                db.collection("Mascotas")
-                                    .document(binding.chipM.text.toString())
-                                    .delete()
+                                // Inserta la mascota en la base de datos
+                                db.collection("Mascotas").document(binding.chipM.text.toString())
+                                    .set(data)
                                     .addOnSuccessListener {
+
                                         Toast.makeText(
                                             this,
-                                            "La mascota se eliminó correctamente",
+                                            "El registro de la nueva mascota se realizó correctamente",
                                             Toast.LENGTH_SHORT
                                         ).show()
 
@@ -265,66 +193,145 @@ class AnadirMascota : MenuActivity() {
                                         actividadActual = 0
                                         startActivity(intent)
                                     }
-                                    .addOnFailureListener { exception ->
-                                        val errorMessage =
-                                            "Error al eliminar la mascota: ${exception.message}"
+                                    .addOnFailureListener {
                                         Toast.makeText(
                                             this,
-                                            errorMessage,
+                                            "Error en el registro de la nueva mascota",
                                             Toast.LENGTH_SHORT
                                         ).show()
-                                    }.addOnFailureListener { exception ->
-                                        val errorMessage =
-                                            "Error al obtener la mascota: ${exception.message}"
-                                        Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT)
-                                            .show()
                                     }
-                            }
-                            builder.setNegativeButton("No") { dialog, which ->
-                                // Acciones a realizar si el usuario no confirma la eliminación
-
-                                limpiarCampos()
-                                actividadActual = 1
+                            }.addOnFailureListener { exception ->
+                                Log.e("Imagen", "Error al subir la imagen: $exception")
                             }
 
-                            val dialog = builder.create()
-                            dialog.show()
                         } else {
-                            // El documento no existe
-                            Toast.makeText(
-                                this,
-                                "La mascota con el chip especificado no existe",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            // El chip ya existe en la base de datos
+                            Toast.makeText(this, "El chip ya está en uso", Toast.LENGTH_SHORT)
+                                .show()
                         }
                     }
-
-
+                    .addOnFailureListener { exception ->
+                        // Error al realizar la consulta
+                        Toast.makeText(this, "Error al verificar el chip", Toast.LENGTH_SHORT)
+                            .show()
+                        Log.e("Verificación de chip", exception.toString())
+                    }
             }
+
+
+        }
+        //modificar el boton eliminar cuando sea nulo el chip que salte un error
+
+        binding.BeliminarM.setOnClickListener {
+            if (binding.chipM.text.isNullOrEmpty()) {
+                Toast.makeText(
+                    this,
+                    "Por favor, ingrese un valor para el campo Chip",
+                    Toast.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Confirmar eliminación")
+            builder.setMessage("¿Estás seguro de que deseas eliminar esta mascota?")
+
+            // Verificar si el documento existe antes de eliminarlo
+            db.collection("Mascotas")
+                .document(binding.chipM.text.toString())
+                .get()
+                .addOnSuccessListener { documentSnapshot ->
+                    if (documentSnapshot.exists()) {
+                        builder.setPositiveButton("Si") { dialog, which ->
+                            // Acciones a realizar si el usuario confirma la eliminación
+                            // Eliminar la mascota de la base de datos
+                            db.collection("Mascotas")
+                                .document(binding.chipM.text.toString())
+                                .delete()
+                                .addOnSuccessListener {
+                                    Toast.makeText(
+                                        this,
+                                        "La mascota se eliminó correctamente",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+
+                                    limpiarCampos()
+                                    cargarDatos()
+
+                                    val intent = Intent(this, InicioActivity::class.java).apply {
+                                        putExtra("nombremascota", binding.nombreM.text.toString())
+                                    }
+                                    finishAffinity()
+                                    actividadActual = 0
+                                    startActivity(intent)
+                                }
+                                .addOnFailureListener { exception ->
+                                    val errorMessage = "Error al eliminar la mascota: ${exception.message}"
+                                    Toast.makeText(
+                                        this,
+                                        errorMessage,
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                        }
+
+                        builder.setNegativeButton("No") { dialog, which ->
+                            // Acciones a realizar si el usuario no confirma la eliminación
+                            limpiarCampos()
+                            actividadActual = 1
+                        }
+
+                        val dialog = builder.create()
+                        dialog.show()
+                    } else {
+                        // El documento no existe
+                        Toast.makeText(
+                            this,
+                            "La mascota con el chip especificado no existe",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    val errorMessage = "Error al verificar la existencia de la mascota: ${exception.message}"
+                    Toast.makeText(
+                        this,
+                        errorMessage,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        }
+
+
+
+
 
             //modificar el boton actualizar cuando sea nulo el chip que salte un error
         binding.BactualizarM.setOnClickListener {
 
-                if (binding.chipM.text.isNullOrEmpty() || binding.edadM.text.isNullOrEmpty()
-                    || binding.nombreM.text.isNullOrEmpty()
-                    || binding.descripcionM.text.isNullOrEmpty()
-                    || binding.localidadM.text.isNullOrEmpty() || binding.razaM.text.isNullOrEmpty()
-                    || binding.duenoM.text.isNullOrEmpty()
-                    || binding.telefonoM.text.isNullOrEmpty()
-                ) {
-                    Toast.makeText(this, "Tiene que ingresar todos los campos", Toast.LENGTH_SHORT).show()
-                } else {
+            if (binding.chipM.text.isNullOrEmpty() || binding.edadM.text.isNullOrEmpty()
+                || binding.nombreM.text.isNullOrEmpty()
+                || binding.descripcionM.text.isNullOrEmpty()
+                || binding.localidadM.text.isNullOrEmpty() || binding.razaM.text.isNullOrEmpty()
+                || binding.duenoM.text.isNullOrEmpty()
+                || binding.telefonoM.text.isNullOrEmpty()
+            ) {
+                Toast.makeText(this, "Tiene que ingresar todos los campos", Toast.LENGTH_SHORT).show()
+            } else {
 
-                    db.collection("Mascotas")
-                        .document(binding.chipM.text.toString())
-                        .get()
-                        .addOnSuccessListener { documentSnapshot ->
-                            if (documentSnapshot.exists()) {
-                                // El documento existe, puedes proceder a actualizarlo
-                                subirIMG().addOnSuccessListener { uri ->
-                                    val downloadUrl = uri.toString()
+                db.collection("Mascotas")
+                    .document(binding.chipM.text.toString())
+                    .get()
+                    .addOnSuccessListener { documentSnapshot ->
+                        if (documentSnapshot.exists()) {
+
+                            val idNoactualizada = documentSnapshot.getLong("idM").toString().toInt()
+                            // El documento existe, puedes proceder a actualizarlo
+                            subirIMG().addOnSuccessListener { uri ->
+
+                                val downloadUrl = uri.toString()
                                     val data = mapOf(
-                                        "idM" to idUnica,
+                                        "idM" to idNoactualizada,
                                         "chip" to binding.chipM.text.toString(),
                                         "nombre" to binding.nombreM.text.toString(),
                                         "Estado" to binding.estadoM.selectedItem.toString(),
@@ -341,6 +348,7 @@ class AnadirMascota : MenuActivity() {
                                         "telefono" to binding.telefonoM.text.toString(),
                                         "imagen" to downloadUrl
                                     )
+
                                     db.collection("Mascotas")
                                         .document(binding.chipM.text.toString())
                                         .set(data)
@@ -372,14 +380,14 @@ class AnadirMascota : MenuActivity() {
                                             Toast.makeText(this, errorMessage, Toast.LENGTH_SHORT).show()
                                         }
                                 }
-                            } else {
-                                // El documento no existe
-                                Toast.makeText(
-                                    this,
-                                    "La mascota con el chip especificado no existe",
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            }
+                        } else {
+                            // El documento no existe
+                            Toast.makeText(
+                                this,
+                                "La mascota con el chip especificado no existe",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                         }
                 }
 

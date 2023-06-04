@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputType
+import android.view.View
 import android.widget.Toast
 import com.example.proyectofinalmodulo.Models.UsuariosData
 import com.example.proyectofinalmodulo.databinding.ActivityMainBinding
@@ -14,12 +16,14 @@ import com.google.firebase.ktx.Firebase
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
     lateinit var usuarios_data : UsuariosData
+    private var isPasswordVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         usuarios_data = UsuariosData()
+        val db = Firebase.firestore
         val emailEditable: Editable = Editable.Factory.getInstance().newEditable(usuarios_data.gmail)
 
         binding.BinicioSesion.setOnClickListener{
@@ -29,10 +33,15 @@ class MainActivity : AppCompatActivity() {
             binding.emailPMain.text.clear()
             binding.passwordPMain.text.clear()
         }
+
+        binding.verPassword.setOnClickListener {
+            verPassword()
+        }
+
         binding.BRegistrarse.setOnClickListener {
             startActivity(Intent(this, RegistroActivity::class.java))
         }
-        val db = Firebase.firestore
+
 
         binding.TcambiarPassword.setOnClickListener {
             val intent = Intent(this, CambiarContraseniaActivity::class.java)
@@ -67,5 +76,18 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "Algun campo está vacío", Toast.LENGTH_SHORT).show()
         }
 
+    }
+
+    private fun verPassword() {
+        isPasswordVisible = !isPasswordVisible
+
+        if (isPasswordVisible) {
+            binding.passwordPMain.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            binding.verPassword.setImageResource(R.drawable.ver_password)
+        } else {
+            binding.passwordPMain.inputType =
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            binding.verPassword.setImageResource(R.drawable.ver_password)
+        }
     }
 }

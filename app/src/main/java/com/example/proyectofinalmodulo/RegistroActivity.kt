@@ -6,7 +6,10 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
+import android.text.InputType
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -22,7 +25,8 @@ import java.io.ByteArrayOutputStream
 
 class RegistroActivity : AppCompatActivity() {
     lateinit var binding: ActivityRegistroBinding
-    lateinit var imagenes: ImageButton
+    lateinit var imagenes: ImageView
+    private var isPasswordVisible = false
     val db = FirebaseFirestore.getInstance()
 
     val pickMedia = registerForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
@@ -42,8 +46,6 @@ class RegistroActivity : AppCompatActivity() {
             foto?.let {
                 binding.imageView.setImageBitmap(it)
             }
-        } else {
-            startActivity(Intent(this, AnadirMascota::class.java))
         }
     }
 
@@ -84,10 +86,20 @@ class RegistroActivity : AppCompatActivity() {
         imagenes = binding.imageView
 
         title = "Nuevo usuario" // Cambia el título de la pantalla
-        binding.imageView.setOnClickListener {
+        binding.botongaleria.setOnClickListener {
             pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
 
         }
+
+        binding.botonfoto.setOnClickListener {
+            pickFoto.launch(Intent(MediaStore.ACTION_IMAGE_CAPTURE))
+        }
+
+        binding.verPassword.setOnClickListener {
+            togglePasswordVisibility()
+        }
+
+
         binding.BregistrarP.setOnClickListener {
             if (binding.emailP.text.isNotEmpty() && binding.passwordPRegistro.text.isNotEmpty()
                 && binding.nombreP.text.isNotEmpty() && binding.apellidosP.text.isNotEmpty()
@@ -108,12 +120,6 @@ class RegistroActivity : AppCompatActivity() {
                                         "Registro exitoso. Se ha enviado un correo de verificación.",
                                         Toast.LENGTH_SHORT
                                     ).show()
-
-                                    val usuario = hashMapOf(
-                                        "nombre" to binding.nombreP.text.toString(),
-                                        "apellidos" to binding.apellidosP.text.toString(),
-                                        "gmail" to binding.emailP.text.toString()
-                                    )
 
                                     subirIMG { imageUri ->
                                         // Convertir el objeto Uri a una cadena de texto
@@ -172,6 +178,19 @@ class RegistroActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Algun campo está vacío", Toast.LENGTH_SHORT).show()
             }
+        }
+    }
+
+    private fun togglePasswordVisibility() {
+        isPasswordVisible = !isPasswordVisible
+
+        if (isPasswordVisible) {
+            binding.passwordPRegistro.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            binding.verPassword.setImageResource(R.drawable.ver_password)
+        } else {
+            binding.passwordPRegistro.inputType =
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            binding.verPassword.setImageResource(R.drawable.ver_password)
         }
     }
 }

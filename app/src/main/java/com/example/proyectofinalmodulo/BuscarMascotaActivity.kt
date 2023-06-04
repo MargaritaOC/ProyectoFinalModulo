@@ -40,12 +40,12 @@ class BuscarMascotaActivity : MenuActivity() {
                 .get()
                 .addOnSuccessListener { querySnapshot ->
                     if (!querySnapshot.isEmpty) {
-                        val mascota = querySnapshot.documents.first()
                         val intent = Intent(this, InfoMascotaActivity::class.java)
                         intent.putExtra("idM", idMascota.toString())
                         startActivity(intent)
 
                         binding2.PTidM.text = "Id: $idMascota"
+                        binding.infoId.text.clear()
                         // Agrega aquí el código para mostrar los demás datos de la mascota en los campos correspondientes
                     } else {
                         Toast.makeText(
@@ -54,10 +54,6 @@ class BuscarMascotaActivity : MenuActivity() {
                             Toast.LENGTH_SHORT
                         ).show()
 
-                        val intent = Intent(this, BuscarMascotaActivity::class.java)
-                        intent.putExtra("idM", idMascota.toString())
-                        actividadActual = 3
-                        startActivity(intent)
                     }
                 }
         }

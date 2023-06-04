@@ -11,88 +11,131 @@
         android:id="@+id/nombreP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="288dp"
-        android:ems="10"
+        android:layout_marginTop="320dp"
         android:backgroundTint="@color/teal_200"
-        android:textColorHint="@color/gris"
+        android:ems="10"
         android:hint="Nombre"
         android:inputType="textPersonName"
         android:textColor="@color/black"
+        android:textColorHint="@color/gris"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/apellidosP"
+    <ImageButton
+        android:id="@+id/verPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:backgroundTint="@color/teal_200"
-        android:textColorHint="@color/gris"
-        android:textColor="@color/black"
-        android:hint="Apellidos"
-        android:inputType="textPersonName"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:src="@drawable/ver_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreP" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordPRegistro" />
 
     <EditText
         android:id="@+id/emailP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
+        android:layout_marginTop="12dp"
         android:backgroundTint="@color/teal_200"
-        android:textColorHint="@color/gris"
-        android:textColor="@color/black"
+        android:ems="10"
         android:hint="email"
         android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gris"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/apellidosP" />
 
     <EditText
+        android:id="@+id/apellidosP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/teal_200"
+        android:ems="10"
+        android:hint="Apellidos"
+        android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gris"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombreP" />
+
+    <EditText
         android:id="@+id/passwordPRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/teal_200"
         android:ems="10"
         android:hint="contraseña"
-        android:backgroundTint="@color/teal_200"
-        android:textColorHint="@color/gris"
-        android:textColor="@color/black"
         android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gris"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailP" />
 
+
+    <ImageButton
+        android:id="@+id/botonfoto"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:background="@color/transparente"
+        android:src="@drawable/camara"
+        android:text="Hacer foto"
+        android:textColor="@color/teal_200"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.308"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageButton
+        android:id="@+id/botongaleria"
+        android:layout_width="45dp"
+        android:layout_height="42dp"
+        android:background="@color/transparente"
+        android:src="@drawable/galeria"
+        android:text="Hacer foto"
+        android:textColor="@color/teal_200"
+        android:textSize="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.431"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
     <Button
         android:id="@+id/BregistrarP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:textColor="@color/teal_200"
+        android:layout_marginTop="68dp"
         android:background="@color/transparente"
         android:text="Registrarse"
+        android:textColor="@color/teal_200"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordPRegistro" />
 
-    <ImageButton
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="185dp"
         android:layout_height="217dp"
         android:scaleType="centerCrop"
+        android:background="@color/transparente"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.087"
-        app:srcCompat="@drawable/splashscreenproyecto" />
+        app:srcCompat="@drawable/persona" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

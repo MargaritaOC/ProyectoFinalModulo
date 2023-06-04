@@ -10,6 +10,7 @@ import android.provider.MediaStore
 import android.text.Editable
 import android.util.Log
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -29,7 +30,7 @@ import java.io.ByteArrayOutputStream
 class ModificarUsuario : MenuActivity() {
     lateinit var binding: ActivityModificarUsuarioBinding
     lateinit var binding2: ActivityInicioBinding
-    lateinit var imagenes: ImageButton
+    lateinit var imagenes: ImageView
     lateinit var adapter: UsuariosAdapter
     lateinit var usuariosModel: UsuariosData
     private lateinit var mascotasRecyclerView: RecyclerView
@@ -66,8 +67,6 @@ class ModificarUsuario : MenuActivity() {
                 foto?.let {
                     binding.BIusuario.setImageBitmap(it)
                 }
-            } else {
-                startActivity(Intent(this, AnadirMascota::class.java))
             }
         }
 
@@ -91,11 +90,11 @@ class ModificarUsuario : MenuActivity() {
                 }
             }
 
-        binding.BIusuario.setOnClickListener {
+        binding.botongaleria.setOnClickListener {
             pickMedia.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
 
         }
-        binding.BfotoP.setOnClickListener {
+        binding.botonfoto.setOnClickListener {
             pickFoto.launch(Intent(MediaStore.ACTION_IMAGE_CAPTURE))
         }
 

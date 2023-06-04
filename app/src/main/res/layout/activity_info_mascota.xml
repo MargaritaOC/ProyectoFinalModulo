@@ -10,114 +10,16 @@
 
     <ImageView
         android:id="@+id/imagenMascota"
-        android:layout_width="382dp"
-        android:layout_height="142dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="380dp"
+        android:layout_height="123dp"
+        android:scaleType="fitStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.027"
-        tools:srcCompat="@tools:sample/avatars"
-        tools:context="."/>
+        tools:context="."
+        tools:srcCompat="@tools:sample/avatars" />
 
-
-    <TextView
-        android:id="@+id/PTsexoM"
-        android:layout_width="190dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="272dp"
-        android:text=""
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.04"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTnombreM"
-        android:layout_width="198dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="200dp"
-        android:text=""
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTedadM"
-        android:layout_width="198dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="308dp"
-        android:text=""
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTtelefonoM"
-        android:layout_width="198dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="508dp"
-        android:text=""
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTestadoM"
-        android:layout_width="198dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="476dp"
-        android:text=""
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTduenoM"
-        android:layout_width="201dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="536dp"
-        android:text=""
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTrazaM"
-        android:layout_width="198dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="236dp"
-        android:text=""
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/PTvacunadoM"
-        android:layout_width="198dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="380dp"
-        android:text=""
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/PTidM"
@@ -126,69 +28,207 @@
         android:layout_marginTop="8dp"
         android:text=""
         android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imagenMascota" />
+
+    <TextView
+        android:id="@+id/PTnombreM"
+        android:layout_width="198dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PTidM" />
+
+    <TextView
+        android:id="@+id/PTedadM"
+        android:layout_width="198dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="11dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PTsexoM" />
+
+    <TextView
+        android:id="@+id/PTsexoM"
+        android:layout_width="190dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="11dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PTrazaM" />
 
     <TextView
         android:id="@+id/PTesterilizadoM"
         android:layout_width="198dp"
         android:layout_height="25dp"
-        android:layout_marginTop="412dp"
+        android:layout_marginTop="7dp"
         android:text=""
         android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/PTvacunadoM" />
+
+    <TextView
+        android:id="@+id/PTvacunadoM"
+        android:layout_width="198dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PTlocalidadM" />
 
     <TextView
         android:id="@+id/PTlocalidadM"
         android:layout_width="201dp"
         android:layout_height="30dp"
-        android:layout_marginTop="340dp"
+        android:layout_marginTop="7dp"
         android:text=""
         android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.033"
+        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/PTedadM" />
 
     <TextView
-        android:id="@+id/PTemailM"
-        android:layout_width="298dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="572dp"
+        android:id="@+id/PTestadoM"
+        android:layout_width="198dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="7dp"
         android:text=""
         android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/PTespecieM" />
+
+    <Button
+        android:id="@+id/botonAdoptar"
+        android:layout_width="100dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/transparente"
+        android:text="Adoptar"
+        android:textColor="@color/teal_200"
+        android:textSize="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.909" />
+
+    <TextView
+        android:id="@+id/PTrazaM"
+        android:layout_width="198dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PTnombreM" />
+
+    <TextView
+        android:id="@+id/PTduenoM"
+        android:layout_width="261dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="8dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.106"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PTtelefonoM" />
 
     <TextView
         android:id="@+id/PTespecieM"
         android:layout_width="198dp"
         android:layout_height="25dp"
-        android:layout_marginTop="444dp"
+        android:layout_marginTop="7dp"
         android:text=""
         android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/PTesterilizadoM" />
 
     <TextView
         android:id="@+id/PTdescripcionM"
-        android:layout_width="257dp"
-        android:layout_height="98dp"
-        android:layout_marginTop="616dp"
+        android:layout_width="261dp"
+        android:layout_height="94dp"
+        android:layout_marginTop="8dp"
         android:text=""
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.058"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/botonAdoptar"
+        app:layout_constraintHorizontal_bias="0.447"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/PTemailM" />
+
+    <TextView
+        android:id="@+id/PTtelefonoM"
+        android:layout_width="198dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="7dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PTestadoM" />
+
+    <TextView
+        android:id="@+id/PTemailM"
+        android:layout_width="298dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="6dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PTduenoM" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
